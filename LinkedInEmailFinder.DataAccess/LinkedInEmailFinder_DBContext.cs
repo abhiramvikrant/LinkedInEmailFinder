@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using LinkedInEmailFinder.Models;
+using LinkedInEmailFinder.Models.ViewModels;
+using LinkedInEmailFinder.Models.UserFields;
 
 namespace LinkedEmailFinder.DataAccess
 {

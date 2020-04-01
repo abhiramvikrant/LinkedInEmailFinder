@@ -43,25 +43,29 @@
 
             <div class="container">
                 <div class="col-md-6">&nbsp;</div>
-                <div class="col-md-4">&nbsp;</div>
-                <div class="col-md-2 mr-1 pr-1">
+                <div class="col-md-3">&nbsp;</div>
+                <div class="col-md-3 mr-1 pr-1">
                     <ul class="navbar-nav mr-1 pr-1">
 
-                        @if (!smanager.IsSignedIn(User))
+                        @if (User.Identity.IsAuthenticated == false)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="account" asp-action="register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="Login" asp-action="login">Login</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="signout">Sign Out</a>
-
-                                </li>
+                                <form method="post" id="frmLogout">
+                                    <button asp-action="logout" asp-controller="Login" class=" btn btn-info ">Sign out</button>
+                                </form>
+                            </li>
                         }
-                            
-                        </ul>
+
+                    </ul>
                 </div>
             </div>
 

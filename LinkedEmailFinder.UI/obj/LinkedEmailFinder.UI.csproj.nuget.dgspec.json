@@ -124,7 +124,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\projects\\DeepakSingh\\SalesSQL\\LinkedInEmailFinder\\LinkedInEmailFinder.Models\\LinkedInEmailFinder.Models.csproj": {
+                "projectPath": "D:\\projects\\DeepakSingh\\SalesSQL\\LinkedInEmailFinder\\LinkedInEmailFinder.Models\\LinkedInEmailFinder.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

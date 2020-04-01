@@ -18,4 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LinkedInEmailFinder.Models\LinkedInEmailFinder.Models.csproj" />
+  </ItemGroup>
+
 </Project>
