@@ -1,0 +1,10 @@
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\bin\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.deps.json
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\bin\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.AssemblyInfoInputs.cache
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.AssemblyInfo.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\bin\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.runtimeconfig.json
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\bin\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.runtimeconfig.dev.json
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\bin\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.pdb
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.pdb
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.csprojAssemblyReference.cache
