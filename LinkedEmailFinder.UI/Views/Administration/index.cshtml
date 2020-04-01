@@ -1,0 +1,32 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "RoleList";
+}
+
+<h4>Role List</h4>
+
+<p>
+    <a asp-action="CreateRole" class="btn btn-outline-info">Create New Role</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Id</td>
+            <td>
+                <a asp-controller="administration" asp-action="Edit" asp-route-roleid="@item.Id" class="btn btn-info">Edit</a> &nbsp;
+                <a asp-controller="administration" asp-action="Delete" asp-route-roleid="@item.Id" onclick="return confirm('Are you sure about deleting the role {@item.Name}');" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -44,11 +44,14 @@
 
 
             <div class="container">
-                <div class="col-md-6">&nbsp;</div>
-                <div class="col-md-3">&nbsp;</div>
-                <div class="col-md-3 mr-1 pr-1">
+               
+  
+                <div>
+                 
                     <ul class="navbar-nav mr-1 pr-1">
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="administration" asp-action="index">Manage Roles</a>
+                        </li>
                         @if (User.Identity.IsAuthenticated == false)
                         {
                             <li class="nav-item">

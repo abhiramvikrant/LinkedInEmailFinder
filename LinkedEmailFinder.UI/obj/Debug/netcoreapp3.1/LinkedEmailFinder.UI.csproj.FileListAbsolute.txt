@@ -149,3 +149,9 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\De
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Login\Logout.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\EntityFramework.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Administration\CreateRole.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Administration\index.cshtml.g.cs
