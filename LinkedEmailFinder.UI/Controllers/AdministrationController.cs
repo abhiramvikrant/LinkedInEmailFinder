@@ -7,6 +7,7 @@ using LinkedInEmailFinder.Models;
 using LinkedInEmailFinder.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using LinkedInEmailFinder.UI.ViewModels;
 
 namespace LinkedEmailFinder.UI.Controllers
 {
@@ -14,16 +15,18 @@ namespace LinkedEmailFinder.UI.Controllers
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> rmanager;
+        private readonly UserManager<IdentityUser> umanager;
 
         public IActionResult Index()
         {
             var rolelist = rmanager.Roles.ToList(); ;
             return View(rolelist);
         }
-        public AdministrationController( RoleManager<IdentityRole> rmanager)
+        public AdministrationController( RoleManager<IdentityRole> rmanager, UserManager<IdentityUser> umanager)
         {
             this.rmanager = rmanager;
-            this.rmanager = rmanager;
+            this.umanager = umanager;
+            
         }
         [HttpGet]
         public IActionResult CreateRole()
@@ -51,5 +54,28 @@ namespace LinkedEmailFinder.UI.Controllers
             return View(model);
            
         }
+
+        public async Task<IActionResult> ListUsersInRole(int id)
+        {
+            var role = rmanager.FindByIdAsync(id.ToString());
+            if(role == null)
+            {
+                
+                ModelState.AddModelError("", "Invalid role");
+            }
+            UserToRoleViewModel model = new UserToRoleViewModel();
+            
+          
+
+
+            var userlist = umanager.Users;
+
+            foreach (var item in userlist)
+            {
+
+            }
+            return View();
+        }
+
         }
     }

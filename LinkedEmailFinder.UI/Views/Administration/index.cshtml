@@ -24,6 +24,7 @@
             <td>@item.Id</td>
             <td>
                 <a asp-controller="administration" asp-action="Edit" asp-route-roleid="@item.Id" class="btn btn-info">Edit</a> &nbsp;
+                <a asp-controller="administration" asp-action="AddRemoveUsers" asp-route-roleid ="@item.Id" class="btn btn-light">Add / Remove Users</a>&nbsp;
                 <a asp-controller="administration" asp-action="Delete" asp-route-roleid="@item.Id" onclick="return confirm('Are you sure about deleting the role {@item.Name}');" class="btn btn-danger">Delete</a>
             </td>
         </tr>
