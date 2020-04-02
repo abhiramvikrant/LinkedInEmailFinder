@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using LinkedInEmailFinder.Models;
-using LinkedInEmailFinder.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authorization;
+
 
 namespace LinkedInEmailFinder.UI.ViewModels
 {
@@ -13,6 +10,14 @@ namespace LinkedInEmailFinder.UI.ViewModels
         public string Id { get; set; }
         public string Name { get; set; }
 
-        public List<IdentityRole> UsersInRole { get; set; }
+        public List<UserRoles> UserRoleList{ get; set; }
+
+        public bool IsSelected { get; set; }
+        public string RoleName { get; set; }
+        public string UserId { get; set; }
+
+        public string UserName { get; set; }
+
+        public bool IsInRole { get; set; }
     }
 }

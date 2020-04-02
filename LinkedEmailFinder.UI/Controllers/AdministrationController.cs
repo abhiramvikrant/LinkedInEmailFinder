@@ -8,10 +8,11 @@ using LinkedInEmailFinder.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using LinkedInEmailFinder.UI.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace LinkedEmailFinder.UI.Controllers
 {
- [Authorize]
+    [Authorize]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> rmanager;
@@ -22,11 +23,11 @@ namespace LinkedEmailFinder.UI.Controllers
             var rolelist = rmanager.Roles.ToList(); ;
             return View(rolelist);
         }
-        public AdministrationController( RoleManager<IdentityRole> rmanager, UserManager<IdentityUser> umanager)
+        public AdministrationController(RoleManager<IdentityRole> rmanager, UserManager<IdentityUser> umanager)
         {
             this.rmanager = rmanager;
             this.umanager = umanager;
-            
+
         }
         [HttpGet]
         public IActionResult CreateRole()
@@ -35,9 +36,9 @@ namespace LinkedEmailFinder.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateRole( RoleCreateViewModel model)
+        public async Task<IActionResult> CreateRole(RoleCreateViewModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 IdentityRole role = new IdentityRole();
                 role.Name = model.Name;
@@ -52,30 +53,78 @@ namespace LinkedEmailFinder.UI.Controllers
                 }
             }
             return View(model);
-           
-        }
 
-        public async Task<IActionResult> ListUsersInRole(int id)
+        }
+        [HttpGet]
+        public async Task<IActionResult> ListUsersInRole(string roleid)
         {
-            var role = rmanager.FindByIdAsync(id.ToString());
-            if(role == null)
+
+            var role = await rmanager.FindByIdAsync(roleid.ToString());
+            if (role == null)
             {
-                
+
                 ModelState.AddModelError("", "Invalid role");
+                return View();
             }
-            UserToRoleViewModel model = new UserToRoleViewModel();
-            
-          
+            ViewBag.RoleName = role.Name;
 
-
-            var userlist = umanager.Users;
-
-            foreach (var item in userlist)
+            var ulist = umanager.Users.ToList();
+            var users = new UserRoles();
+            var userlist = new List<UserRoles>();
+            foreach (var item in ulist)
             {
+                var u = new UserRoles()
+                {
+                    UserName = item.UserName,
+                    UserId = item.Id,
+                    IsInRole =
+                    await umanager.IsInRoleAsync(new IdentityUser()
+                    { UserName = item.UserName, Id = item.Id }, role.Name) ? true : false
+                };
+                
+                userlist.Add(u);          
+         }
 
+
+            return View(userlist);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ListUsersInRole(List<UserRoles> models, string roleid)
+        {
+            var role = await rmanager.FindByIdAsync(roleid.ToString());
+            List<IdentityResult> results = new List<IdentityResult>();
+
+     
+            foreach (var item in models)
+            {
+                var user = await umanager.FindByIdAsync(item.UserId);
+                //IdentityUser u = new IdentityUser() { UserName = item.UserName, Id = item.UserId };
+                if ((item.IsInRole) && (!await umanager.IsInRoleAsync(user, role.Name)))
+                {
+
+                    
+                    await umanager.AddToRoleAsync(user, role.Name);
+
+
+                }
+
+                if ((!item.IsInRole) && (await umanager.IsInRoleAsync(user, role.Name)))
+                {
+
+                    await umanager.RemoveFromRoleAsync(user, role.Name);
+
+                }
+
+                for (int i = 0; i < results.ToList().Count; i++)
+                {
+                    if (!results[i].Succeeded)
+                        ModelState.AddModelError("", "Error occured");
+                }
+                
             }
-            return View();
+            return View(models);
         }
 
-        }
     }
+}

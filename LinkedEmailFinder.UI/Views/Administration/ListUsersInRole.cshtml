@@ -1,0 +1,34 @@
+﻿@using LinkedInEmailFinder.UI.ViewModels
+@model IList<UserRoles>
+
+@{
+    ViewData["Title"] = "Add or remove users from Roles"; 
+   
+}
+
+<h4>Add/Remove users from Roles</h4>
+<hr />
+<form method="post">
+    <div class="card">
+        <div class="card-header">
+            Role: <label>@ViewBag.RoleName</label>
+        </div>
+     
+        <div class="card-body">
+            @for (int i = 0; i<Model.Count;i++)
+            {                         
+            <div>
+                <input  type="checkbox" asp-for="@Model[i].IsInRole" />
+                <input type="hidden" asp-for="@Model[i].UserId" />
+                <input  type="hidden" asp-for="@Model[i].UserName" />
+                <label asp-for="@Model[i].IsInRole">@Model[i].UserName</label>
+            </div>
+
+            }
+
+        </div>
+        <div class="card-footer">
+            <button type="submit" asp-for="ListUsersInRole">Update Users</button>
+        </div>
+    </div>
+</form>

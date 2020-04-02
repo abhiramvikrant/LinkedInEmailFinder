@@ -155,3 +155,4 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\De
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Administration\CreateRole.cshtml.g.cs
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Administration\index.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Administration\ListUsersInRole.cshtml.g.cs
