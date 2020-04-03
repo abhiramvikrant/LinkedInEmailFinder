@@ -5,3 +5,4 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.Models\
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.Models\bin\Debug\netcoreapp3.1\LinkedInEmailFinder.Models.pdb
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.Models\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.Models.dll
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.Models\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.Models.pdb
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.Models\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.Models.csprojAssemblyReference.cache

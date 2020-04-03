@@ -25,42 +25,41 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1 header-color">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" style="color: mediumturquoise">Install</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="How">How it Works</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Pricing">Pricing</a>
-                        </li>
+                       
+                      
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Help">Help</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Blog">Blog</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="subscriptions" asp-action="index">Buy</a>
                         </li>
-
+                      
                         @if (!User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item ml-auto text-md-right">
-                                <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="account" asp-action="register">Register</a>
+                            <li class="nav-item ml-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="register">Register</a>
                             </li>
-                            <li class="nav-item ml-auto text-md-right">
-                                <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="Login" asp-action="login">Login</a>
+                            <li class="nav-item ml-auto">
+                                <a class="nav-link text-dark " asp-area="" asp-controller="Login" asp-action="login">Login</a>
                             </li>
                         }
                         else if (User.Identity.IsAuthenticated)
                         {
                             @if (User.IsInRole("Admin"))
                             {
-                                <li class="nav-item ml-auto">
-                                    <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="administration" asp-action="index">Manage Roles</a>
-                                </li>
+                                <div class="dropdown mt-1 ml-auto ">
+                                    <button type="button" class="btn btn-info dropdown-toggle ml-auto" data-toggle="dropdown">
+                                        Admin
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-area="" asp-controller="administration" asp-action="index">Manage Roles</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="account" asp-action="userlist">Manage Users</a>
+                                        <a class="dropdown-item" asp-controller="subscriptions" asp-action="create">Manage Subscriptions</a>
+                                    </div>
+                                </div>
+                              
 
-                                <li class="nav-item ml-auto">
-                                    <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="account" asp-action="userlist">Manage Users</a>
-                                </li>
+                               
 
                             }
                             <li class="nav-item ml-auto">

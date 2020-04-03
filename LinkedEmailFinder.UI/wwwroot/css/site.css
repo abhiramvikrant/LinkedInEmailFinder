@@ -7,6 +7,14 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.btnpurchase{
+    color: white;
+    background-color: royalblue;
+}
+.btnpurchase:hover{
+    background-color: blue;
+}
+
 header{
     line-height: 40px;
 }

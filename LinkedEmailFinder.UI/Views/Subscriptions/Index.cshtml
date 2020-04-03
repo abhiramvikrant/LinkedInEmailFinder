@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LinkedInEmailFinder.Models.Subscriptions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4 class="mr-4">Purchase a Plan</h4><hr />
+
+
+<div class="container-fluid">
+    <div class="row">
+
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mt-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Plan Name:<b>
+                                @Html.DisplayFor(modelItem => item.SubscriptionName)
+                            </b>
+                            <input type="hidden" asp-for="@item.SubscriptionId" />
+                        </div><div class="card-body">
+                            <div>
+                                Price: @Html.DisplayFor(modelItem => item.SubscriptionPrice)
+                            </div><div>
+                                Description: @Html.DisplayFor(modelItem => item.SubscriptionDescription)
+                            </div><div>
+                                Month Validity: @Html.DisplayFor(modelItem => item.SubscriptionPeriodInMonths)
+                            </div>
+                        </div>
+                              <div class="card-footer">
+                                  @if (item.SubscriptionName.ToLower() == "trial")
+                                  {
+                                      <a asp-controller="subscriptions" asp-action="try" class="btn btn-primary">Try</a>
+                                  }
+                                  else
+                                  {
+                                      <a asp-controller="subscriptions" asp-action="Purchase" class="btn btn-primary">Purchase</a>
+                                  }
+
+                              </div>
+                    </div>
+                </div>
+
+            }
+      
+    </div>
+</div>
+
