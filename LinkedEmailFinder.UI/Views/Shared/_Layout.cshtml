@@ -50,13 +50,20 @@
                                 <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="Login" asp-action="login">Login</a>
                             </li>
                         }
-                        else if(User.Identity.IsAuthenticated)
+                        else if (User.Identity.IsAuthenticated)
                         {
-                           
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item ml-auto">
+                                    <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="administration" asp-action="index">Manage Roles</a>
+                                </li>
+
+                                <li class="nav-item ml-auto">
+                                    <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="account" asp-action="userlist">Manage Users</a>
+                                </li>
+
+                            }
                             <li class="nav-item ml-auto">
-                                <a class="nav-link text-dark text-md-right" asp-area="" asp-controller="administration" asp-action="index">Manage Roles</a>
-                            </li>                        
-                             <li class="nav-item ml-auto">
                                 <form method="post" id="frmLogout">
                                     <button asp-action="logout" asp-controller="Login" class=" btn btn-info ">Sign out</button>
                                 </form>

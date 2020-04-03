@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LinkedEmailFinder.UI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> rmanager;
@@ -55,6 +55,7 @@ namespace LinkedEmailFinder.UI.Controllers
             return View(model);
 
         }
+       
         [HttpGet]
         public async Task<IActionResult> ListUsersInRole(string roleid)
         {

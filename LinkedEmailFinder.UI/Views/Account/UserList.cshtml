@@ -1,0 +1,45 @@
+﻿@model IEnumerable<UserViewModel>
+@{
+    ViewData["Title"] = "User List";
+    var ulist = Model.ToList();
+}
+
+<h4>User List</h4>
+<form>
+    <div class="container">
+        <div class="row">
+            <div class="table">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <td>User Name</td>
+                            <td>User Id</td>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        @foreach (var item in ulist)
+                                  {
+
+                            <tr>
+                                <td>@item.UserName</td>
+                                <td>@item.Id <input type="hidden" asp-for="@item.Id" /></td>
+                                <td><a class="btn btn-info" asp-controller="account" asp-route-userid="@item.Id" asp-action="edituser">Edit</a></td>
+                                <td><a class="btn btn-danger" asp-controller="account" asp-action="DeleteUser" onclick="return confirm('Are you you want to delete the user?')" asp-route-userid="@item.Id">Delete</a></td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+

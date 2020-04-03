@@ -36,6 +36,55 @@ namespace LinkedEmailFinder.UI.Controllers
             await smanager.SignOutAsync();
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult>EditUser(string userid)
+        {
+            var userbyid = await umanager.FindByIdAsync(userid);
+            if(userbyid == null)
+            {
+                ModelState.AddModelError("", "User not found");
+            }
+            UserViewModel u = new UserViewModel() { Id = userbyid.Id, UserName = userbyid.UserName };
+            return View(u);
+
+
+        }
+        [HttpGet]
+        public  IActionResult UserList()
+        {
+            var userlist =  umanager.Users.ToList();
+            List<UserViewModel> u = new List<UserViewModel>();
+            foreach (var item in userlist)
+            {
+                u.Add(new UserViewModel() { Id = item.Id, UserName = item.UserName });
+            }
+            return View(u);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditUser(IdentityUser user)
+        {
+            var u = await umanager.FindByIdAsync(user.Id);
+            u.UserName = user.UserName;
+            var ret = await umanager.UpdateAsync(u);
+            if (ret == null)
+            {
+                ModelState.AddModelError("", "User not found");
+            }
+            return RedirectToAction("userlist");
+        }
+
+        public async Task<IActionResult> DeleteUser(string userid)
+        {
+            var u = await umanager.FindByIdAsync(userid);
+            var ret = await umanager.DeleteAsync(u);
+            if (ret == null)
+            {
+                ModelState.AddModelError("", "User not found");
+            }
+            return RedirectToAction("userlist");
+        }
+
+
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
@@ -47,7 +96,8 @@ namespace LinkedEmailFinder.UI.Controllers
                 if (result.Succeeded)
                 {
                     await smanager.PasswordSignInAsync(model.Email, model.Password, false, false);
-                   bool r =  smanager.IsSignedIn(User);
+                   var r = await umanager.AddToRoleAsync(user, "Customers");
+                   bool ret =  smanager.IsSignedIn(User);
                     foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError("", error.Description);
