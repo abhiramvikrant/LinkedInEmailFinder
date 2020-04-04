@@ -18,8 +18,12 @@ namespace LinkedInEmailFinder.Models.UserFields
         {
             base.Email = email;
         }
+
+
         public string Address1 { get; set; }
+
         public string Address2 { get; set; }
+
         public string MobileNumber { get; set; }
         public string City { get; set; }
 
@@ -27,7 +31,7 @@ namespace LinkedInEmailFinder.Models.UserFields
         public int CountryId { get; set; }
 
         public int PinCode { get; set; }
-        [Display(Name=" Say about yourself")]
+     
         public string SayAboutYourSelf { get; set; }
 
         public int PurposeId { get; set; }

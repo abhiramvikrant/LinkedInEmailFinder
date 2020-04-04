@@ -128,7 +128,6 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\De
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.csprojAssemblyReference.cache
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\staticwebassets\LinkedEmailFinder.UI.StaticWebAssets.Manifest.cache
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\staticwebassets\LinkedEmailFinder.UI.StaticWebAssets.xml
-D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.MvcApplicationPartsAssemblyInfo.cache
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.RazorAssemblyInfo.cache
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.RazorAssemblyInfo.cs
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.AssemblyInfoInputs.cache
@@ -158,3 +157,6 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\De
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.csproj.CopyComplete
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.dll
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.pdb
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\LinkedEmailFinder.UI.MvcApplicationPartsAssemblyInfo.cache

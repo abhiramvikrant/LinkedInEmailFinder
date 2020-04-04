@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using LinkedEmailFinder.DataAccess.Repository;
 using LinkedInEmailFinder.Models.UserFields;
+using AutoMapper;
 
 namespace LinkedEmailFinder.UI
 {
@@ -29,6 +30,7 @@ namespace LinkedEmailFinder.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<LinkedInEmailFinder_DBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LinkedInCon")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<LinkedInEmailFinder_DBContext>();
             services.AddScoped(typeof(LinkedInEmailFinder_DBContext), typeof(LinkedInEmailFinder_DBContext));

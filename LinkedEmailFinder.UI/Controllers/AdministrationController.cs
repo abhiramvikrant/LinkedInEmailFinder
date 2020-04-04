@@ -37,6 +37,7 @@ namespace LinkedEmailFinder.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateRole(RoleCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -92,6 +93,7 @@ namespace LinkedEmailFinder.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ListUsersInRole(List<UserRoles> models, string roleid)
         {
             var role = await rmanager.FindByIdAsync(roleid.ToString());

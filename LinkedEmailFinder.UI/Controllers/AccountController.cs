@@ -7,6 +7,7 @@ using LinkedInEmailFinder.Models;
 using LinkedInEmailFinder.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using LinkedInEmailFinder.Models.UserFields;
+using AutoMapper;
 
 
 namespace LinkedEmailFinder.UI.Controllers
@@ -15,12 +16,13 @@ namespace LinkedEmailFinder.UI.Controllers
     {
         private readonly UserManager<ApplicationUser> umanager;
         private readonly SignInManager<ApplicationUser> smanager;
+        private readonly IMapper mapper;
 
-        public AccountController(UserManager<ApplicationUser> umanager, SignInManager<ApplicationUser> smanager)
+        public AccountController(UserManager<ApplicationUser> umanager, SignInManager<ApplicationUser> smanager, IMapper mapper)
         {
             this.umanager = umanager;
             this.smanager = smanager;
-      
+            this.mapper = mapper;
         }
 
         public IActionResult Index()
