@@ -20,23 +20,34 @@
                                 @Html.DisplayFor(modelItem => item.SubscriptionName)
                             </b>
                             <input type="hidden" asp-for="@item.SubscriptionId" />
-                        </div><div class="card-body">
-                            <div>
-                                Price: @Html.DisplayFor(modelItem => item.SubscriptionPrice)
-                            </div><div>
-                                Description: @Html.DisplayFor(modelItem => item.SubscriptionDescription)
-                            </div><div>
-                                Month Validity: @Html.DisplayFor(modelItem => item.SubscriptionPeriodInMonths)
-                            </div>
-                        </div>
+                            <input type="hidden" asp-for="@item.SubscriptionPeriodInMonths" />
+                                   </div><div class="card-body">
+    @if (@item.UseDiscountPrice)
+    {
+        <div>
+            Price: @Html.DisplayFor(modelItem => item.SubscriptionDiscountPrice)
+        </div>
+    }
+    else
+    {
+        <div>
+            Price: @Html.DisplayFor(modelItem => item.SubscriptionPrice)
+        </div>
+    }
+    <div>
+        Description: @Html.DisplayFor(modelItem => item.SubscriptionDescription)
+    </div><div>
+        Month Validity: @Html.DisplayFor(modelItem => item.SubscriptionPeriodInMonths)
+    </div>
+</div>
                               <div class="card-footer">
                                   @if (item.SubscriptionName.ToLower() == "trial")
                                   {
-                                      <a asp-controller="subscriptions" asp-action="try" class="btn btn-primary">Try</a>
+                                      <a asp-controller="subscriptions" asp-action="try" class="btn btn-primary"  asp-route-subscriptionid="@item.SubscriptionId">Try</a>
                                   }
                                   else
                                   {
-                                      <a asp-controller="subscriptions" asp-action="Purchase" class="btn btn-primary">Purchase</a>
+                                      <a asp-controller="subscriptions" asp-action="confirmpurchase" class="btn btn-primary" asp-route-subscriptionid="@item.SubscriptionId">Purchase</a>
                                   }
 
                               </div>

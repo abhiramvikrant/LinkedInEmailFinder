@@ -1,11 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using LinkedInEmailFinder.Models;
 using LinkedInEmailFinder.Models.ViewModels;
 using LinkedInEmailFinder.Models.UserFields;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace LinkedEmailFinder.DataAccess
 {
@@ -15,6 +13,9 @@ namespace LinkedEmailFinder.DataAccess
         public DbSet<Countries> Countries { get; set; }
 
         public DbSet<States> States { get; set; }
+
+        public DbSet<SubscriptionPurchases> SubscriptionPurchases { get; set; }
+        public DbSet<Config> Config { get; set; }
         public LinkedInEmailFinder_DBContext()
         {
         }

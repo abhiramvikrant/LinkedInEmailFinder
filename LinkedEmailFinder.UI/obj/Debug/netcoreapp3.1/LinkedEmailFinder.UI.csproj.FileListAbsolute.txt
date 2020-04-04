@@ -162,3 +162,4 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\De
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\EditUser.cshtml.g.cs
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\EditUserByUserName.cshtml.g.cs
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Subscriptions\ConfirmPurchase.cshtml.g.cs

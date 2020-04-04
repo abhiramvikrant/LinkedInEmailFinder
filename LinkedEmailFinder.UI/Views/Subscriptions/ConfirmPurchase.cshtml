@@ -1,0 +1,59 @@
+﻿@model LinkedInEmailFinder.Models.Subscriptions
+
+@{
+    ViewData["Title"] = "Confirm Purchase";
+}
+    <form method="post">
+        <h4>ConfirmPurchase</h4>
+        <hr />
+        <div class="container">
+
+
+            <div class="card">
+
+                <div class="card-header">
+                    Plan Name:<b>
+                        @Html.DisplayFor(modelItem => Model.SubscriptionName)
+                    </b>
+                    <input type="hidden" asp-for="@Model.SubscriptionId" />
+                    <input type="hidden" asp-for="@Model.SubscriptionPeriodInMonths" />
+                </div><div class="card-body">
+                    @if (@Model.UseDiscountPrice)
+                    {
+                        <div>
+                            Price: @Html.DisplayFor(modelItem => Model.SubscriptionDiscountPrice)
+                        </div>
+                    }
+                    else
+                    {
+                        <div>
+                            Price: @Html.DisplayFor(modelItem => Model.SubscriptionPrice)
+                        </div>
+                    }
+                    <div>
+                        Description: @Html.DisplayFor(modelItem => Model.SubscriptionDescription)
+                    </div><div>
+                        Month Validity: @Html.DisplayFor(modelItem => Model.SubscriptionPeriodInMonths)
+                    </div>
+                </div>
+                <div class="card-footer">
+                    @if (Model.SubscriptionName.ToLower() == "trial")
+                    {
+                        <a asp-controller="subscriptions" asp-action="confirmpurchase" class="btn btn-primary" asp-route-subscriptionid="@Model.SubscriptionId">Try Trial</a>
+                    }
+                    else
+                    {
+                        <button asp-controller="subscriptions" asp-action="confirmpurchase" asp-route-subscriptionid="@Model.SubscriptionId" asp-route-username="@User.Identity.Name" asp-route-subname="@Model.SubscriptionName" class="btn btn-primary" type="submit">Confirm and Check out</button>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <label>@ViewBag.Message</label>
+
+    </form>
+
+
+  
+   
+
