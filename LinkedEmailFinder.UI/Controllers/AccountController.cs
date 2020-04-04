@@ -6,15 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using LinkedInEmailFinder.Models;
 using LinkedInEmailFinder.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using LinkedInEmailFinder.Models.UserFields;
+
 
 namespace LinkedEmailFinder.UI.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> umanager;
-        private readonly SignInManager<IdentityUser> smanager;
+        private readonly UserManager<ApplicationUser> umanager;
+        private readonly SignInManager<ApplicationUser> smanager;
 
-        public AccountController(UserManager<IdentityUser> umanager, SignInManager<IdentityUser> smanager)
+        public AccountController(UserManager<ApplicationUser> umanager, SignInManager<ApplicationUser> smanager)
         {
             this.umanager = umanager;
             this.smanager = smanager;
@@ -61,7 +63,7 @@ namespace LinkedEmailFinder.UI.Controllers
             return View(u);
         }
         [HttpPost]
-        public async Task<IActionResult> EditUser(IdentityUser user)
+        public async Task<IActionResult> EditUser(ApplicationUser user)
         {
             var u = await umanager.FindByIdAsync(user.Id);
             u.UserName = user.UserName;
@@ -91,7 +93,7 @@ namespace LinkedEmailFinder.UI.Controllers
         {
             if(ModelState.IsValid)
             {
-                var user = new IdentityUser(model.Email);
+                var user = new ApplicationUser(model.Email);
                 var result = await umanager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

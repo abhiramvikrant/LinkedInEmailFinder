@@ -41,14 +41,21 @@ using LinkedInEmailFinder.Models.ViewModels;
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\Views\_ViewImports.cshtml"
+#line 7 "D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\Views\_ViewImports.cshtml"
+using LinkedInEmailFinder.Models.UserFields;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"35605413e93fae151c43bc8b7a3c3fd71b4cd981", @"/Views/Login/Logout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e3a2a95a49e5422db499bc1ade53f6027a6f122", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1c567c309a63742a5950efe4c9fcc31af65a0864", @"/Views/_ViewImports.cshtml")]
     public class Views_Login_Logout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

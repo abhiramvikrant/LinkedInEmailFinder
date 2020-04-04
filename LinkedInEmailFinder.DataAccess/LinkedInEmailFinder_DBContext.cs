@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using LinkedInEmailFinder.Models;
 using LinkedInEmailFinder.Models.ViewModels;
 using LinkedInEmailFinder.Models.UserFields;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace LinkedEmailFinder.DataAccess
 {
-    public partial class LinkedInEmailFinder_DBContext : IdentityDbContext
+    public partial class LinkedInEmailFinder_DBContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Subscriptions> Subscriptions { get; set; }
         public LinkedInEmailFinder_DBContext()

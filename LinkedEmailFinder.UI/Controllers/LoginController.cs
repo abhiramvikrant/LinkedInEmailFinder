@@ -5,14 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LinkedInEmailFinder.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using LinkedInEmailFinder.Models.UserFields;
 
 namespace LinkedEmailFinder.UI.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly SignInManager<IdentityUser> smanager;
+        private readonly SignInManager<ApplicationUser> smanager;
 
-        public LoginController(SignInManager<IdentityUser> smanager)
+        public LoginController(SignInManager<ApplicationUser> smanager)
         {
             this.smanager = smanager;
         }

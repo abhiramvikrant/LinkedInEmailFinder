@@ -41,14 +41,21 @@ using LinkedInEmailFinder.Models.ViewModels;
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\Views\_ViewImports.cshtml"
+#line 7 "D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\Views\_ViewImports.cshtml"
+using LinkedInEmailFinder.Models.UserFields;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"daeb90d6aa26ecad37a5f9249a705fe26d188e5b", @"/Views/Account/DeleteUser.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e3a2a95a49e5422db499bc1ade53f6027a6f122", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1c567c309a63742a5950efe4c9fcc31af65a0864", @"/Views/_ViewImports.cshtml")]
     public class Views_Account_DeleteUser : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LinkedInEmailFinder.Models.ViewModels.UserViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -121,9 +128,9 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n    \r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "daeb90d6aa26ecad37a5f9249a705fe26d188e5b6594", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "daeb90d6aa26ecad37a5f9249a705fe26d188e5b6820", async() => {
                 WriteLiteral("\r\n        <input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\" /> |\r\n        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "daeb90d6aa26ecad37a5f9249a705fe26d188e5b6941", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "daeb90d6aa26ecad37a5f9249a705fe26d188e5b7167", async() => {
                     WriteLiteral("Back to List");
                 }
                 );
