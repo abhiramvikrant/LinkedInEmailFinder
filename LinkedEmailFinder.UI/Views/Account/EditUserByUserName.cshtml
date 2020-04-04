@@ -1,22 +1,19 @@
 ﻿@model LinkedInEmailFinder.Models.ViewModels.UserViewModel
 
 @{
-    ViewData["Title"] = "EditUser";
+    ViewData["Title"] = "EditUserByUserName";
 }
 
 <h4>Edit Profile</h4>
 
-
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="EditUser" method="post">
+        <form asp-action="EditUserByUserName" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <input asp-for="Id" class="form-control" type="hidden" />
-
-            <input asp-for="UserName" class="form-control" type="hidden" />
-
+         
+                <input asp-for="Id" class="form-control" type="hidden" />
+              
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
@@ -26,6 +23,11 @@
                 <label asp-for="LastName" class="control-label"></label>
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Address1" class="control-label"></label>
@@ -42,7 +44,11 @@
                 <input asp-for="MobileNumber" class="form-control" />
                 <span asp-validation-for="MobileNumber" class="text-danger"></span>
             </div>
-
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="StateId" class="control-label"></label>
                 <input asp-for="StateId" class="form-control" />
@@ -54,18 +60,13 @@
                 <span asp-validation-for="CountryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="PinCode" class="control-label"></label>
                 <input asp-for="PinCode" class="form-control" />
                 <span asp-validation-for="PinCode" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SayAboutYourSelf" class="control-label"></label>
-                <textarea asp-for="SayAboutYourSelf" class="form-control"></textarea>
+                <input asp-for="SayAboutYourSelf" class="form-control" />
                 <span asp-validation-for="SayAboutYourSelf" class="text-danger"></span>
             </div>
             <div class="form-group">

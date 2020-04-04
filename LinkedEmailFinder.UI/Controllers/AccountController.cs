@@ -7,6 +7,7 @@ using LinkedInEmailFinder.Models;
 using LinkedInEmailFinder.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using LinkedInEmailFinder.Models.UserFields;
+using LinkedEmailFinder.DataAccess;
 using AutoMapper;
 
 
@@ -17,12 +18,14 @@ namespace LinkedEmailFinder.UI.Controllers
         private readonly UserManager<ApplicationUser> umanager;
         private readonly SignInManager<ApplicationUser> smanager;
         private readonly IMapper mapper;
+        private readonly LinkedInEmailFinder_DBContext db;
 
-        public AccountController(UserManager<ApplicationUser> umanager, SignInManager<ApplicationUser> smanager, IMapper mapper)
+        public AccountController(UserManager<ApplicationUser> umanager, SignInManager<ApplicationUser> smanager, IMapper mapper, LinkedInEmailFinder_DBContext db)
         {
             this.umanager = umanager;
             this.smanager = smanager;
             this.mapper = mapper;
+            this.db = db;
         }
 
         public IActionResult Index()
@@ -40,19 +43,33 @@ namespace LinkedEmailFinder.UI.Controllers
             await smanager.SignOutAsync();
             return View();
         }
+ 
         [HttpGet]
-        public async Task<IActionResult>EditUser(string userid)
+        public async Task<IActionResult> EditUser(string userid)
         {
             var userbyid = await umanager.FindByIdAsync(userid);
-            if(userbyid == null)
+            // ViewBag.CountryList = db.Countries.Where(a => a.IsActive == true).ToList();
+            if (userbyid == null)
             {
                 ModelState.AddModelError("", "User not found");
             }
-            UserViewModel u = new UserViewModel() { Id = userbyid.Id, UserName = userbyid.UserName };
+            //UserViewModel u = new UserViewModel() { Id = userbyid.Id, UserName = userbyid.UserName };
+            UserViewModel u = mapper.Map<UserViewModel>(userbyid);
             return View(u);
 
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUser(UserViewModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                return await SaveUser(user, true);
+            }
+            return View(user);
+        }
+
         [HttpGet]
         public  IActionResult UserList()
         {
@@ -64,17 +81,90 @@ namespace LinkedEmailFinder.UI.Controllers
             }
             return View(u);
         }
-        [HttpPost]
-        public async Task<IActionResult> EditUser(ApplicationUser user)
+       
+
+        private async Task<IActionResult> SaveUser(UserViewModel user, bool goToUserList)
         {
-            var u = await umanager.FindByIdAsync(user.Id);
-            u.UserName = user.UserName;
+            ApplicationUser u = await MapManually(user);
             var ret = await umanager.UpdateAsync(u);
+            
             if (ret == null)
             {
                 ModelState.AddModelError("", "User not found");
             }
-            return RedirectToAction("userlist");
+            if (goToUserList)
+            {
+                return RedirectToAction("userlist");
+            }
+            else if(goToUserList == false)
+            {
+                return RedirectToAction("index", "home");
+            }
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUserByUserName(UserViewModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                return await SaveUser(user, false);
+            }
+            return View(user);
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditUserByUserName(string username)
+        {
+            var userbyid = await umanager.FindByNameAsync(username);
+           // ViewBag.CountryList = db.Countries.Where(a => a.IsActive == true).ToList();
+            if (userbyid == null)
+            {
+                ModelState.AddModelError("", "User not found");
+            }
+            //UserViewModel u = new UserViewModel() { Id = userbyid.Id, UserName = userbyid.UserName };
+            UserViewModel u = mapper.Map<UserViewModel>(userbyid);
+            return View(u);
+
+        }
+        [HttpGet]
+        public async  Task<IActionResult>ChangePassword(string username)
+        {
+            var user = await umanager.FindByNameAsync(username);
+            var p = mapper.Map<PasswordChange>(user);
+            return View(p);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(PasswordChange P)
+        {
+            if (ModelState.IsValid) {
+            var user = await umanager.FindByNameAsync(P.UserName);
+            var result = umanager.ChangePasswordAsync(user, P.OldPassword, P.NewPassword);
+            if (result.Result.Succeeded)
+            {
+                return RedirectToAction("index", "home");
+            }
+                                    }
+            return View(P);
+
+        }
+
+        private async Task<ApplicationUser> MapManually(UserViewModel user)
+        {
+            var u = await umanager.FindByIdAsync(user.Id);
+            u.FirstName = user.FirstName;
+            u.LastName = user.LastName;
+            u.Address1 = user.Address1;
+            u.Address2 = user.Address2;
+            u.CountryId = user.CountryId;
+            u.MobileNumber = user.MobileNumber;
+            u.PinCode = user.PinCode;
+            u.PurposeId = user.PurposeId;
+            u.StateId = user.StateId;
+            u.SayAboutYourSelf = user.SayAboutYourSelf;
+            return u;
         }
 
         public async Task<IActionResult> DeleteUser(string userid)

@@ -49,6 +49,14 @@ namespace LinkedInEmailFinder.DataAccess.Migrations
                 name: "SayAboutYourSelf",
                 table: "AspNetUsers",
                 nullable: true);
+            migrationBuilder.AddColumn<string>(
+            name: "FirstName",
+            table: "AspNetUsers",
+            nullable: true);
+            migrationBuilder.AddColumn<string>(
+            name: "LastName",
+            table: "AspNetUsers",
+            nullable: true);
 
             migrationBuilder.AddColumn<int>(
                 name: "StateId",

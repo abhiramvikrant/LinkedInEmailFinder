@@ -128,6 +128,7 @@ namespace LinkedInEmailFinder.DataAccess.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
+                  
 
                     b.HasKey("Id");
 

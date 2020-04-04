@@ -12,6 +12,9 @@ namespace LinkedEmailFinder.DataAccess
     public partial class LinkedInEmailFinder_DBContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Subscriptions> Subscriptions { get; set; }
+        public DbSet<Countries> Countries { get; set; }
+
+        public DbSet<States> States { get; set; }
         public LinkedInEmailFinder_DBContext()
         {
         }

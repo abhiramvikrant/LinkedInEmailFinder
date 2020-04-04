@@ -15,6 +15,8 @@ namespace LinkedEmailFinder.UI
         public AutoMapping()
         {
             CreateMap<ApplicationUser, UserViewModel>();
+            CreateMap<UserViewModel, ApplicationUser>();
+            CreateMap<ApplicationUser, PasswordChange>();
         }
     }
 }
