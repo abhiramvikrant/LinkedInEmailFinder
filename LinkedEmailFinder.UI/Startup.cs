@@ -30,7 +30,7 @@ namespace LinkedEmailFinder.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(c=> c.AddProfile<AutoMapping>(),typeof(Startup));
             services.AddDbContext<LinkedInEmailFinder_DBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LinkedInCon")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<LinkedInEmailFinder_DBContext>();
             services.AddScoped(typeof(LinkedInEmailFinder_DBContext), typeof(LinkedInEmailFinder_DBContext));
