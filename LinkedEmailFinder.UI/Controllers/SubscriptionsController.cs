@@ -8,6 +8,8 @@ using LinkedEmailFinder.DataAccess.Repository;
 using LinkedInEmailFinder.Models;
 using Microsoft.AspNetCore.Identity;
 using LinkedInEmailFinder.Models.UserFields;
+using LinkedInEmailFinder.Models.ViewModels;
+using AutoMapper;
 
 namespace LinkedEmailFinder.UI.Controllers
 {
@@ -17,17 +19,43 @@ namespace LinkedEmailFinder.UI.Controllers
         private readonly UserManager<ApplicationUser> umanager;
         private readonly IRepository<SubscriptionPurchases> purRepo;
         private readonly LinkedInEmailFinder_DBContext dbcontext;
+        private readonly IMapper mapper;
 
-        public SubscriptionsController(IRepository<Subscriptions> srepo,UserManager<ApplicationUser> umanager, IRepository<SubscriptionPurchases> purRepo, LinkedInEmailFinder_DBContext dbcontext)
+        public SubscriptionsController(IRepository<Subscriptions> srepo,UserManager<ApplicationUser> umanager,
+            IRepository<SubscriptionPurchases> purRepo, LinkedInEmailFinder_DBContext dbcontext, IMapper mapper)
         {
             this.srepo = srepo;
             this.umanager = umanager;
             this.purRepo = purRepo;
             this.dbcontext = dbcontext;
+            this.mapper = mapper;
         }
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult AdminIndex()
         {
             var sublist = srepo.GetAll().OrderBy(c => c.SubscriptionDisplayOrder).ToList();
+            return View(sublist);
+        
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Subscriptions s)
+        {
+            var result = srepo.Update(s); return View("AdminIndex");
+
+        }
+        public IActionResult Delete(string subid)
+        {
+
+            var objSub = srepo.GetAll().Where(s => s.SubscriptionId.ToString() == subid).FirstOrDefault();
+            var result = srepo.Delete(objSub);
+            return View("AdminIndex");
+
+        }
+       [HttpGet]
+        public IActionResult Index()
+        {
+            var sublist = srepo.GetAll().Where(s=> s.IsActive == true).OrderBy(c => c.SubscriptionDisplayOrder).ToList();
             return View(sublist);
         }
         [HttpGet]
@@ -70,13 +98,13 @@ namespace LinkedEmailFinder.UI.Controllers
             {
                 purchase.IsTrial = false;
             }
-            if (model.UseDiscountPrice == false)
+            if ((bool)model.UseDiscountPrice == false)
             {
                 purchase.AmountPaid = model.SubscriptionPrice;
             }
-            else if (model.UseDiscountPrice)
+            else if ((bool)model.UseDiscountPrice)
             {
-                purchase.AmountPaid = model.SubscriptionDiscountPrice;
+                purchase.AmountPaid = (decimal)model.SubscriptionDiscountPrice;
             }
 
             var result = purRepo.Create(purchase);
@@ -94,6 +122,33 @@ namespace LinkedEmailFinder.UI.Controllers
 
 
 
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(SubscriptionCreateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var obj = mapper.Map<Subscriptions>(model);
+                var result = srepo.Create(obj);
+                if (result > 0)
+                {
+                    return RedirectToAction("index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Error occured while creating Subscription");
+                    return View(model);
+                }
+            }
+            return View(model);
         }
     }
 }

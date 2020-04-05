@@ -18,7 +18,7 @@
                     <input type="hidden" asp-for="@Model.SubscriptionId" />
                     <input type="hidden" asp-for="@Model.SubscriptionPeriodInMonths" />
                 </div><div class="card-body">
-                    @if (@Model.UseDiscountPrice)
+                    @if ((bool)@Model.UseDiscountPrice)
                     {
                         <div>
                             Price: @Html.DisplayFor(modelItem => Model.SubscriptionDiscountPrice)

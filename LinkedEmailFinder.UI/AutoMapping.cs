@@ -6,7 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using LinkedInEmailFinder.Models.UserFields;
  using LinkedInEmailFinder.Models.ViewModels;
-
+using LinkedInEmailFinder.Models;
 
 namespace LinkedEmailFinder.UI
 {
@@ -17,6 +17,7 @@ namespace LinkedEmailFinder.UI
             CreateMap<ApplicationUser, UserViewModel>();
             CreateMap<UserViewModel, ApplicationUser>();
             CreateMap<ApplicationUser, PasswordChange>();
+            CreateMap<SubscriptionCreateViewModel, Subscriptions>();
         }
     }
 }

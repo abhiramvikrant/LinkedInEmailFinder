@@ -13,8 +13,10 @@ namespace LinkedInEmailFinder.Models
 			public decimal SubscriptionPrice { get; set; }
 			public string SubscriptionDescription { get; set; }
 			public bool UseDiscountPrice { get; set; }
-			public decimal SubscriptionDiscountPrice { get; set; }
+			public decimal? SubscriptionDiscountPrice { get; set; }
 			public int SubscriptionPeriodInMonths { get; set; }
+
+		public bool IsActive { get; set; }
 
 		public int SubscriptionDisplayOrder { get; set; }
 	}

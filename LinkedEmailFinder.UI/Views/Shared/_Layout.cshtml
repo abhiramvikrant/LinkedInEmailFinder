@@ -14,7 +14,7 @@
 <body>
     <header>
         <div class="container-fluid">
-            
+
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-light navbar-light   border-bottom box-shadow mb-3">
 
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LinkedIn Email Finder</a>
@@ -34,21 +34,22 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="subscriptions" asp-action="index">Buy</a>
                         </li>
                         @if (User.Identity.IsAuthenticated)
-                        {<li class="nav-item mt-2">
-                            <div class="dropdown">
-                                &nbsp;
-                                <button type="button" class="btn btn-outline-info dropdown-toggle ml-auto" data-toggle="dropdown">
-                                    Edit
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a  class="ml-3" asp-action="changepassword" asp-controller="account" asp-route-username="@User.Identity.Name">Change Password</a>
-                                    <a class="ml-3"asp-action="EditUserByUserName" asp-controller="account" asp-route-username="@User.Identity.Name">Edit Profile</a>
-                                    
+                        {
+                            <li class="nav-item mt-2">
+                                <div class="dropdown">
+                                    &nbsp;
+                                    <button type="button" class="btn btn-outline-info dropdown-toggle ml-auto" data-toggle="dropdown">
+                                        Edit
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="ml-3" asp-action="changepassword" asp-controller="account" asp-route-username="@User.Identity.Name">Change Password</a>
+                                        <a class="ml-3" asp-action="EditUserByUserName" asp-controller="account" asp-route-username="@User.Identity.Name">Edit Profile</a>
+
+                                    </div>
                                 </div>
-                            </div>                         
-                                                   
+
                             </li>
-                          
+
                         }
 
                         @if (!User.Identity.IsAuthenticated)
@@ -74,8 +75,8 @@
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" asp-area="" asp-controller="administration" asp-action="index">Manage Roles</a>
                                             <a class="dropdown-item" asp-area="" asp-controller="account" asp-action="userlist">Manage Users</a>
-                                            <a class="dropdown-item" asp-controller="subscriptions" asp-action="create">Manage Subscriptions</a>
-                                            <a class="dropdown-item" asp-controller="subscriptionpurchases" asp-action="index">Disable Subscriptions</a>
+                                            <a class="dropdown-item" asp-controller="subscriptions" asp-action="adminindex">Manage Subscriptions</a>
+
                                         </div>
                                     </div>
                                 </li>
@@ -91,12 +92,12 @@
                         }
                     </ul>
                 </div>
-        </nav>
-            </div>
+            </nav>
+        </div>
 
 
 
-    
+
 
     </header>
     <div class="container">
@@ -106,15 +107,17 @@
     </div>
 
     <footer class="border-top footer bg-light">
-    <div class="ml-4">
+        <div class="ml-4">
             &copy; 2020 - Linkedin Email Finder - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
+        </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
-   
+
 </body>
 </html>

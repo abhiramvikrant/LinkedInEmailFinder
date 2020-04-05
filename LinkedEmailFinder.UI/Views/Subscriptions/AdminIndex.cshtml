@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LinkedInEmailFinder.Models.Subscriptions>
+
+@{
+    ViewData["Title"] = "AdminIndex";
+}
+
+<h1>AdminIndex</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UseDiscountPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionDiscountPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionPeriodInMonths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionDisplayOrder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+               
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionName)
+                @Html.HiddenFor(modelItem => item.SubscriptionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseDiscountPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionDiscountPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionPeriodInMonths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionDisplayOrder)
+            </td>
+            <td>
+                <a asp-controller="subscriptions" asp-action="edit" class="btn btn-info">Edit</a>
+                <a asp-controller="subscriptions" asp-action="delete" onclick="return confirm('are you you want to delete the subscription'); " class="btn btn-danger" asp-route-subid="@item.SubscriptionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
