@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using LinkedInEmailFinder.Models.UserFields;
 using LinkedInEmailFinder.Models.ViewModels;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LinkedEmailFinder.UI.Controllers
 {
@@ -37,19 +38,31 @@ namespace LinkedEmailFinder.UI.Controllers
             return View(sublist);
         
         }
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Edit(string subid)
+        {
+            var objSub = srepo.GetAll().Where(s => s.SubscriptionId.ToString() == subid).FirstOrDefault();
+            return View(objSub);
+        }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+    
+       [Authorize(Roles="Admin")]
         public IActionResult Edit(Subscriptions s)
         {
-            var result = srepo.Update(s); return View("AdminIndex");
+            var result = srepo.Update(s); 
+            return RedirectToAction("AdminIndex");
 
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(string subid)
         {
 
             var objSub = srepo.GetAll().Where(s => s.SubscriptionId.ToString() == subid).FirstOrDefault();
             var result = srepo.Delete(objSub);
-            return View("AdminIndex");
+            return RedirectToAction("AdminIndex");
 
         }
        [HttpGet]
@@ -125,6 +138,7 @@ namespace LinkedEmailFinder.UI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -132,6 +146,7 @@ namespace LinkedEmailFinder.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create(SubscriptionCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -140,7 +155,7 @@ namespace LinkedEmailFinder.UI.Controllers
                 var result = srepo.Create(obj);
                 if (result > 0)
                 {
-                    return RedirectToAction("index");
+                    return RedirectToAction("AdminIndex");
                 }
                 else
                 {

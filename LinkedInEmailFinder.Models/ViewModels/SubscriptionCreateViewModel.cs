@@ -25,6 +25,8 @@ namespace LinkedInEmailFinder.Models.ViewModels
 		[Display(Name = "Subscription Period in Months")]
 		public int SubscriptionPeriodInMonths { get; set; }
 
-		
+		public bool? IsActive { get; set; }
+
+
 	}
 }

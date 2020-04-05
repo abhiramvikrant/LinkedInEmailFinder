@@ -4,12 +4,12 @@
     ViewData["Title"] = "AdminIndex";
 }
 
-<h1>AdminIndex</h1>
+<h4>Admin Index</h4>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             
@@ -72,7 +72,11 @@
                 @Html.DisplayFor(modelItem => item.SubscriptionDisplayOrder)
             </td>
             <td>
-                <a asp-controller="subscriptions" asp-action="edit" class="btn btn-info">Edit</a>
+                <a asp-controller="subscriptions" asp-action="edit" class="btn btn-info" asp-route-subid="@item.SubscriptionId">Edit</a>
+                
+
+            </td>
+            <td>
                 <a asp-controller="subscriptions" asp-action="delete" onclick="return confirm('are you you want to delete the subscription'); " class="btn btn-danger" asp-route-subid="@item.SubscriptionId">Delete</a>
             </td>
         </tr>
