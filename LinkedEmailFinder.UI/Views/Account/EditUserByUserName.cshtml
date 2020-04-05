@@ -11,9 +11,9 @@
     <div class="col-md-4">
         <form asp-action="EditUserByUserName" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-         
-                <input asp-for="Id" class="form-control" type="hidden" />
-              
+
+            <input asp-for="Id" class="form-control" type="hidden" />
+
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
@@ -50,14 +50,17 @@
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StateId" class="control-label"></label>
-                <input asp-for="StateId" class="form-control" />
-                <span asp-validation-for="StateId" class="text-danger"></span>
+                <label asp-for="CountryId" class="control-label">Select Country</label>
+                <select asp-for="CountryId" class="form-control" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName",Model.CountryId))"><option value="">Select Country</option></select>
+                <span asp-validation-for="CountryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CountryId" class="control-label"></label>
-                <input asp-for="CountryId" class="form-control" />
-                <span asp-validation-for="CountryId" class="text-danger"></span>
+                <label asp-for="StateId" class="control-label"></label>
+                <select asp-for="StateId" class="form-control" asp-items="@(new SelectList(ViewBag.StateList,"StateId","StateName",Model.StateId))">
+                    <option value="">Select State</option>
+                    <option value="-1">Not Mentioned here</option>
+                </select>
+                <span asp-validation-for="StateId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PinCode" class="control-label"></label>
@@ -69,11 +72,9 @@
                 <input asp-for="SayAboutYourSelf" class="form-control" />
                 <span asp-validation-for="SayAboutYourSelf" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PurposeId" class="control-label"></label>
-                <input asp-for="PurposeId" class="form-control" />
-                <span asp-validation-for="PurposeId" class="text-danger"></span>
-            </div>
+           
+                <input type="hidden" asp-for="PurposeId" class="form-control" />
+           
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

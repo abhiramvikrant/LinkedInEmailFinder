@@ -1,0 +1,77 @@
+05-Apr-20 7:43:38 PM	This log contains information about the import schema operation into project 'LinkedInEmailDB' on computer 'CHENNAILAP' by user 'Vikrant'.
+05-Apr-20 7:43:38 PM	Import of database schema has started.
+05-Apr-20 7:43:45 PM	Gathering database options
+05-Apr-20 7:43:45 PM	Gathering users
+05-Apr-20 7:43:45 PM	Gathering roles
+05-Apr-20 7:43:45 PM	Gathering application roles
+05-Apr-20 7:43:45 PM	Gathering role memberships
+05-Apr-20 7:43:45 PM	Gathering filegroups
+05-Apr-20 7:43:45 PM	Gathering full-text catalogs
+05-Apr-20 7:43:45 PM	Gathering assemblies
+05-Apr-20 7:43:45 PM	Gathering certificates
+05-Apr-20 7:43:45 PM	Gathering asymmetric keys
+05-Apr-20 7:43:45 PM	Gathering symmetric keys
+05-Apr-20 7:43:45 PM	Gathering encrypted symmetric keys
+05-Apr-20 7:43:45 PM	Gathering schemas
+05-Apr-20 7:43:45 PM	Gathering XML schema collections
+05-Apr-20 7:43:45 PM	Gathering user-defined data types
+05-Apr-20 7:43:45 PM	Gathering user-defined types
+05-Apr-20 7:43:45 PM	Gathering table types
+05-Apr-20 7:43:45 PM	Gathering unique keys for table types
+05-Apr-20 7:43:45 PM	Gathering primary keys for table types
+05-Apr-20 7:43:45 PM	Gathering indexes for table types
+05-Apr-20 7:43:45 PM	Gathering check constraints for table types
+05-Apr-20 7:43:45 PM	Gathering default constraints for table types
+05-Apr-20 7:43:45 PM	Gathering partition functions
+05-Apr-20 7:43:45 PM	Gathering partition schemes
+05-Apr-20 7:43:45 PM	Gathering functions
+05-Apr-20 7:43:46 PM	Gathering encrypted functions
+05-Apr-20 7:43:46 PM	Gathering aggregates
+05-Apr-20 7:43:46 PM	Gathering procedures
+05-Apr-20 7:43:46 PM	Gathering encrypted procedures
+05-Apr-20 7:43:46 PM	Gathering tables
+05-Apr-20 7:43:46 PM	Gathering primary keys
+05-Apr-20 7:43:46 PM	Gathering unique constraints
+05-Apr-20 7:43:46 PM	Gathering foreign keys
+05-Apr-20 7:43:46 PM	Gathering default constraints
+05-Apr-20 7:43:46 PM	Gathering check constraints
+05-Apr-20 7:43:46 PM	Gathering views
+05-Apr-20 7:43:46 PM	Gathering encrypted views
+05-Apr-20 7:43:46 PM	Gathering indexes
+05-Apr-20 7:43:46 PM	Gathering statistics
+05-Apr-20 7:43:46 PM	Gathering full-text index stoplists
+05-Apr-20 7:43:46 PM	Gathering search property lists
+05-Apr-20 7:43:46 PM	Gathering search properties
+05-Apr-20 7:43:46 PM	Gathering full-text indexes
+05-Apr-20 7:43:46 PM	Gathering column store indexes
+05-Apr-20 7:43:46 PM	Gathering spatial indexes
+05-Apr-20 7:43:46 PM	Gathering XML indexes
+05-Apr-20 7:43:46 PM	Gathering Selective XML indexes
+05-Apr-20 7:43:46 PM	Gathering encrypted triggers
+05-Apr-20 7:43:46 PM	Gathering triggers
+05-Apr-20 7:43:46 PM	Gathering encrypted and clr ddl triggers
+05-Apr-20 7:43:46 PM	Gathering ddl triggers
+05-Apr-20 7:43:46 PM	Gathering synonyms
+05-Apr-20 7:43:46 PM	Gathering defaults
+05-Apr-20 7:43:46 PM	Gathering data constraint uddt bindings
+05-Apr-20 7:43:46 PM	Gathering rules
+05-Apr-20 7:43:46 PM	Gathering data constraint uddt bindings
+05-Apr-20 7:43:46 PM	Gathering message types
+05-Apr-20 7:43:46 PM	Gathering queues
+05-Apr-20 7:43:46 PM	Gathering contracts
+05-Apr-20 7:43:46 PM	Gathering services
+05-Apr-20 7:43:46 PM	Gathering event notifications
+05-Apr-20 7:43:46 PM	Gathering remote service bindings
+05-Apr-20 7:43:46 PM	Gathering broker priorities
+05-Apr-20 7:43:46 PM	Gathering signatures
+05-Apr-20 7:43:46 PM	Gathering data compression options
+05-Apr-20 7:43:46 PM	Gathering sequence types
+05-Apr-20 7:43:46 PM	Gathering extended properties
+05-Apr-20 7:43:46 PM	Gathering credentials
+05-Apr-20 7:43:46 PM	Gathering logins
+05-Apr-20 7:43:46 PM	Gathering server audits
+05-Apr-20 7:43:47 PM	Scanning project for duplicate elements
+05-Apr-20 7:43:47 PM	Finished duplicate element processing
+05-Apr-20 7:43:47 PM	Finished importing database.
+05-Apr-20 7:43:47 PM	A summary of the import was saved to the following location: D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\Import Schema Logs\LinkedInEmailDB_20200405021338.log
+05-Apr-20 7:43:47 PM	Click Finish to continue...

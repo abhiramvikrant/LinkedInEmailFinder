@@ -46,7 +46,7 @@ namespace LinkedEmailFinder.UI.Controllers
         public async Task<IActionResult> EditUser(string userid)
         {
             var userbyid = await umanager.FindByIdAsync(userid);
-            // ViewBag.CountryList = db.Countries.Where(a => a.IsActive == true).ToList();
+            GetCountriesAndStates();
             if (userbyid == null)
             {
                 ModelState.AddModelError("", "User not found");
@@ -57,6 +57,13 @@ namespace LinkedEmailFinder.UI.Controllers
 
 
         }
+
+        private void GetCountriesAndStates()
+        {
+            ViewBag.CountryList = db.Countries.Where(a => a.IsActive == true).ToList();
+            ViewBag.StateList = db.States.Where(a => a.IsActive == true).ToList();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditUser(UserViewModel user)
@@ -115,7 +122,7 @@ namespace LinkedEmailFinder.UI.Controllers
         public async Task<IActionResult> EditUserByUserName(string username)
         {
             var userbyid = await umanager.FindByNameAsync(username);
-           // ViewBag.CountryList = db.Countries.Where(a => a.IsActive == true).ToList();
+            GetCountriesAndStates();
             if (userbyid == null)
             {
                 ModelState.AddModelError("", "User not found");
