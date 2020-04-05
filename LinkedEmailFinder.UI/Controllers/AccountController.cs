@@ -8,6 +8,7 @@ using LinkedInEmailFinder.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using LinkedInEmailFinder.Models.UserFields;
 using LinkedEmailFinder.DataAccess;
+using LinkedInEmailFinder.Email;
 using AutoMapper;
 
 
@@ -26,17 +27,14 @@ namespace LinkedEmailFinder.UI.Controllers
             this.smanager = smanager;
             this.mapper = mapper;
             this.db = db;
+            db.Countries.ToList();
         }
 
         public IActionResult Index()
         {
             return View();
         }
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
+    
 
         public async Task<IActionResult> SignOut()
         {
@@ -179,8 +177,13 @@ namespace LinkedEmailFinder.UI.Controllers
         }
 
 
-
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if(ModelState.IsValid)
@@ -205,5 +208,76 @@ namespace LinkedEmailFinder.UI.Controllers
             return View(model);
 
         }
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswodViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await umanager.FindByNameAsync(model.Email);
+                var token = await umanager.GeneratePasswordResetTokenAsync(user);
+                var resetlink = Url.Action("resetpassword", "account", new { email = user, token = token }, Request.Scheme);
+                // SendEmail(model.Email, resetlink);
+                ViewBag.Title = "Reset Password";
+                ViewBag.Message = "An email message was sent to your registered email with the reset link. Kindly click the " +
+                    "mentioned in the email for resetting the password";
+                return View("ShowMessage");
+
+            }
+            ViewBag.Title = "Reset Password";
+            ViewBag.Message = "Error occured while resetting the password";
+            return View("ShowMessage");
+        }
+    
+
+        private void SendEmail(string ToEmail, string EmailMessage)
+        {
+            EmailSupport support = new EmailSupport() { To = ToEmail, Subject = "Reset Password Link",
+                Message  = EmailMessage};
+            try
+            {
+                support.SendEmail();
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError("", ex.Message);
+            }
+
+        }
+        [HttpGet]
+        public IActionResult ResetPassword(string email, string token)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+
+            var user = await umanager.FindByNameAsync(model.Email);
+            var result = await umanager.ResetPasswordAsync(user, model.Token, model.NewPassword);
+            if(result.Succeeded)
+            {
+                ViewBag.Title = "Passord reset succedded";
+                ViewBag.Message = "Password reset was successfully performed.";
+                return View("ShowMessage");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+
+            }
+            return View(model);
+        }
+      
     }
 }

@@ -20,5 +20,7 @@ namespace LinkedInEmailFinder.Models
 		public bool IsTrial { get; set; }
 
 		
+
+		
 	}
 }

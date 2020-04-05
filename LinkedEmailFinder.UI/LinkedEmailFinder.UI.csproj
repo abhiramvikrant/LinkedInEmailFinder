@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LinkedInEmailFinder.DataAccess\LinkedInEmailFinder.DataAccess.csproj" />
+    <ProjectReference Include="..\LinkedINEmailFinder.Email\LinkedINEmailFinder.Email.csproj" />
     <ProjectReference Include="..\LinkedInEmailFinder.Models\LinkedInEmailFinder.Models.csproj" />
   </ItemGroup>
 

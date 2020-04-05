@@ -163,3 +163,10 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\De
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\EditUserByUserName.cshtml.g.cs
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Subscriptions\ConfirmPurchase.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\SubscriptionPurchases\Index.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\LinkedINEmailFinder.Email.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\bin\Debug\netcoreapp3.1\LinkedINEmailFinder.Email.pdb
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPasswordConfirmation.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedEmailFinder.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\ShowMessage.cshtml.g.cs

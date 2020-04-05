@@ -18,5 +18,7 @@ namespace LinkedInEmailFinder.Models.ViewModels
 		public Guid PaymentGatewayID { get; set; }
 		public int PaymentResult { get; set; }
 		public bool IsTrial { get; set; }
+
+	
 	}
 }

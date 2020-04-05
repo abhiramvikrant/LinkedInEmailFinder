@@ -1,0 +1,104 @@
+﻿@model IEnumerable<LinkedInEmailFinder.Models.ViewModels.SubscriptionPurchasesListViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Subscription Purchase Index</h4>
+
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+
+
+
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.UserName)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountPaid)
+            </th>
+           
+            
+            <th>
+                @Html.DisplayNameFor(model => model.PurchasedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.IsTrial)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+
+                @Html.HiddenFor(modelItem => item.PurchaseId)
+
+
+                @Html.HiddenFor(modelItem => item.UserId)
+                @Html.HiddenFor(modelItem => item.SubscriptionUID)
+                @Html.HiddenFor(modelItem => item.PurchaseOrderId)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountPaid)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchasedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTrial)
+            </td>
+            @if (item.IsActive)
+            {
+                <td>
+                    <a asp-action="disable" class="btn btn-danger" onclick="return confirm('You are about to disable the subscription.Click Ok to continue');" asp-route-purchaseid="@item.PurchaseId" asp-route-mode="true">Disable</a>
+                </td>
+            }
+            else if (!item.IsActive)
+            {
+                <td>
+                    <a asp-action="disable" class="btn btn-primary" asp-route-purchaseid="@item.PurchaseId" asp-route-mode="false">Enable</a>
+                </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>

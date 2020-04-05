@@ -16,6 +16,7 @@ namespace LinkedEmailFinder.DataAccess
 
         public DbSet<SubscriptionPurchases> SubscriptionPurchases { get; set; }
         public DbSet<Config> Config { get; set; }
+        public DbSet<SubscriptionPurchasesListViewModel> SubscriptionPurchasesListViewModel { get; set; }
         public LinkedInEmailFinder_DBContext()
         {
         }
