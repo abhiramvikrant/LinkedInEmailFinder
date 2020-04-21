@@ -11,11 +11,13 @@ using LinkedInEmailFinder.Models.UserFields;
 using LinkedInEmailFinder.Models.ViewModels;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Stripe.Infrastructure;
 
 namespace LinkedEmailFinder.UI.Controllers
 {
     public class SubscriptionsController : Controller
     {
+       
         private readonly IRepository<Subscriptions> srepo;
         private readonly UserManager<ApplicationUser> umanager;
         private readonly IRepository<SubscriptionPurchases> purRepo;
@@ -93,7 +95,61 @@ namespace LinkedEmailFinder.UI.Controllers
             }
             var model = GetSubscriptionById(subscriptionid);
             var user = await umanager.FindByNameAsync(username);
+            // set public key
+            Stripe.StripeConfiguration.ApiKey = "pk_test_T0VwRvul36mHa8GBORL45kgE00gkwVwv5a";
+            Stripe.CreditCardOptions card = new Stripe.CreditCardOptions();
+            card.Name = $"{user.FirstName} {user.LastName}";
+            card.Number = "4242424242424242";
+            card.ExpYear = 2022;
+            card.ExpMonth = 10;
+            card.Cvc = "123";
+            var roptions = new Stripe.RequestOptions
+            {
+                //set secret key
+                ApiKey = "sk_test_QJLhsrOV1aW0pWQ7t2WwIU7y00UKAt8ud8"
+            };
+          
 
+            Stripe.TokenCreateOptions token = new Stripe.TokenCreateOptions();
+            token.Card = card;
+            Stripe.TokenService serviceToken = new Stripe.TokenService();
+           Stripe.Token newToken =  serviceToken.Create(token);
+            Stripe.CustomerCreateOptions myCustomer = new Stripe.CustomerCreateOptions();
+            myCustomer.Email = user.Email;
+            myCustomer.Source = newToken.Id;
+            myCustomer.Name = $"{user.FirstName} {user.LastName}";
+            Stripe.AddressOptions homeOptions = new Stripe.AddressOptions
+            {
+                City = user.City,
+                PostalCode = user.PinCode.ToString(),
+                Country = "India",
+                Line1 = user.Address1,
+                Line2 = user.Address2,
+                State = "Tamil Nadu"               
+            };
+
+            myCustomer.Address = homeOptions;
+
+            var customerService = new Stripe.CustomerService();
+            
+            Stripe.Customer stripeCustomer = customerService.Create(myCustomer,roptions);
+            var options = new Stripe.ChargeCreateOptions {
+                Amount = 1000,
+                Currency = "INR",
+                ReceiptEmail = user.Email,               
+                Description = "Ammount paid" ,
+                Customer  = stripeCustomer.Id,
+
+            };
+            var service = new Stripe.ChargeService();
+            Stripe.Charge charge = service.Create(options,roptions);
+            if(charge.Status == "succeeded")
+            {
+                ViewBag.Message = "Payment succeded";
+            }
+
+
+            
 
             SubscriptionPurchases purchase = new SubscriptionPurchases();
             purchase.SubscriptionUID = model.SubscriptionId;

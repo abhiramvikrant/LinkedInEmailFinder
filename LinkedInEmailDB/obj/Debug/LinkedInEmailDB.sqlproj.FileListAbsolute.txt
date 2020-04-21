@@ -1,0 +1,9 @@
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\bin\Debug\LinkedInEmailDB.dacpac
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\bin\Debug\LinkedInEmailDB.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\bin\Debug\LinkedInEmailDB.pdb
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\obj\Debug\Model.xml
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\obj\Debug\refactor.xml
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\obj\Debug\postdeploy.sql
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\obj\Debug\predeploy.sql
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\obj\Debug\LinkedInEmailDB.dll
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailDB\obj\Debug\LinkedInEmailDB.pdb

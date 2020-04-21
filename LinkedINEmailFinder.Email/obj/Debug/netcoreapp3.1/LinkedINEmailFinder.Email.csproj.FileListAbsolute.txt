@@ -11,3 +11,4 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedINEmailFinder.Email\o
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedINEmailFinder.Email\obj\Debug\netcoreapp3.1\LinkedINEmailFinder.Email.csproj.CopyComplete
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedINEmailFinder.Email\obj\Debug\netcoreapp3.1\LinkedINEmailFinder.Email.dll
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedINEmailFinder.Email\obj\Debug\netcoreapp3.1\LinkedINEmailFinder.Email.pdb
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedINEmailFinder.Email\obj\Debug\netcoreapp3.1\LinkedINEmailFinder.Email.csproj.CoreCompileInputs.cache

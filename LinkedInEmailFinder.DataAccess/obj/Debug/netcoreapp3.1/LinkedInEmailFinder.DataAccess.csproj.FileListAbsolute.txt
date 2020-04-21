@@ -11,3 +11,5 @@ D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAcc
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.csproj.CopyComplete
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.dll
 D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.pdb
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.csproj.CoreCompileInputs.cache
+D:\projects\DeepakSingh\SalesSQL\LinkedInEmailFinder\LinkedInEmailFinder.DataAccess\obj\Debug\netcoreapp3.1\LinkedInEmailFinder.DataAccess.genruntimeconfig.cache
